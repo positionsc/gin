@@ -3,63 +3,63 @@
 ## Contents
 
 - [Build Tags](#build-tags)
-  - [Build with json replacement](#build-with-json-replacement)
-  - [Build without `MsgPack` rendering feature](#build-without-msgpack-rendering-feature)
+    - [Build with json replacement](#build-with-json-replacement)
+    - [Build without `MsgPack` rendering feature](#build-without-msgpack-rendering-feature)
 - [API Examples](#api-examples)
-  - [Using GET, POST, PUT, PATCH, DELETE and OPTIONS](#using-get-post-put-patch-delete-and-options)
-  - [Parameters in path](#parameters-in-path)
-  - [Querystring parameters](#querystring-parameters)
-  - [Multipart/Urlencoded Form](#multiparturlencoded-form)
-  - [Another example: query + post form](#another-example-query--post-form)
-  - [Map as querystring or postform parameters](#map-as-querystring-or-postform-parameters)
-  - [Upload files](#upload-files)
-    - [Single file](#single-file)
-    - [Multiple files](#multiple-files)
-  - [Grouping routes](#grouping-routes)
-  - [Blank Gin without middleware by default](#blank-gin-without-middleware-by-default)
-  - [Using middleware](#using-middleware)
-  - [Custom Recovery behavior](#custom-recovery-behavior)
-  - [How to write log file](#how-to-write-log-file)
-  - [Custom Log Format](#custom-log-format)
-  - [Controlling Log output coloring](#controlling-log-output-coloring)
-  - [Model binding and validation](#model-binding-and-validation)
-  - [Custom Validators](#custom-validators)
-  - [Only Bind Query String](#only-bind-query-string)
-  - [Bind Query String or Post Data](#bind-query-string-or-post-data)
-  - [Bind Uri](#bind-uri)
-  - [Bind Header](#bind-header)
-  - [Bind HTML checkboxes](#bind-html-checkboxes)
-  - [Multipart/Urlencoded binding](#multiparturlencoded-binding)
-  - [XML, JSON, YAML, TOML and ProtoBuf rendering](#xml-json-yaml-toml-and-protobuf-rendering)
-    - [SecureJSON](#securejson)
-    - [JSONP](#jsonp)
-    - [AsciiJSON](#asciijson)
-    - [PureJSON](#purejson)
-  - [Serving static files](#serving-static-files)
-  - [Serving data from file](#serving-data-from-file)
-  - [Serving data from reader](#serving-data-from-reader)
-  - [HTML rendering](#html-rendering)
-    - [Custom Template renderer](#custom-template-renderer)
-    - [Custom Delimiters](#custom-delimiters)
-    - [Custom Template Funcs](#custom-template-funcs)
-  - [Multitemplate](#multitemplate)
-  - [Redirects](#redirects)
-  - [Custom Middleware](#custom-middleware)
-  - [Using BasicAuth() middleware](#using-basicauth-middleware)
-  - [Goroutines inside a middleware](#goroutines-inside-a-middleware)
-  - [Custom HTTP configuration](#custom-http-configuration)
-  - [Support Let's Encrypt](#support-lets-encrypt)
-  - [Run multiple service using Gin](#run-multiple-service-using-gin)
-  - [Graceful shutdown or restart](#graceful-shutdown-or-restart)
-    - [Third-party packages](#third-party-packages)
-    - [Manually](#manually)
-  - [Build a single binary with templates](#build-a-single-binary-with-templates)
-  - [Bind form-data request with custom struct](#bind-form-data-request-with-custom-struct)
-  - [Try to bind body into different structs](#try-to-bind-body-into-different-structs)
-  - [Bind form-data request with custom struct and custom tag](#bind-form-data-request-with-custom-struct-and-custom-tag)
-  - [http2 server push](#http2-server-push)
-  - [Define format for the log of routes](#define-format-for-the-log-of-routes)
-  - [Set and get a cookie](#set-and-get-a-cookie)
+    - [Using GET, POST, PUT, PATCH, DELETE and OPTIONS](#using-get-post-put-patch-delete-and-options)
+    - [Parameters in path](#parameters-in-path)
+    - [Querystring parameters](#querystring-parameters)
+    - [Multipart/Urlencoded Form](#multiparturlencoded-form)
+    - [Another example: query + post form](#another-example-query--post-form)
+    - [Map as querystring or postform parameters](#map-as-querystring-or-postform-parameters)
+    - [Upload files](#upload-files)
+        - [Single file](#single-file)
+        - [Multiple files](#multiple-files)
+    - [Grouping routes](#grouping-routes)
+    - [Blank Gin without middleware by default](#blank-gin-without-middleware-by-default)
+    - [Using middleware](#using-middleware)
+    - [Custom Recovery behavior](#custom-recovery-behavior)
+    - [How to write log file](#how-to-write-log-file)
+    - [Custom Log Format](#custom-log-format)
+    - [Controlling Log output coloring](#controlling-log-output-coloring)
+    - [Model binding and validation](#model-binding-and-validation)
+    - [Custom Validators](#custom-validators)
+    - [Only Bind Query String](#only-bind-query-string)
+    - [Bind Query String or Post Data](#bind-query-string-or-post-data)
+    - [Bind Uri](#bind-uri)
+    - [Bind Header](#bind-header)
+    - [Bind HTML checkboxes](#bind-html-checkboxes)
+    - [Multipart/Urlencoded binding](#multiparturlencoded-binding)
+    - [XML, JSON, YAML, TOML and ProtoBuf rendering](#xml-json-yaml-toml-and-protobuf-rendering)
+        - [SecureJSON](#securejson)
+        - [JSONP](#jsonp)
+        - [AsciiJSON](#asciijson)
+        - [PureJSON](#purejson)
+    - [Serving static files](#serving-static-files)
+    - [Serving data from file](#serving-data-from-file)
+    - [Serving data from reader](#serving-data-from-reader)
+    - [HTML rendering](#html-rendering)
+        - [Custom Template renderer](#custom-template-renderer)
+        - [Custom Delimiters](#custom-delimiters)
+        - [Custom Template Funcs](#custom-template-funcs)
+    - [Multitemplate](#multitemplate)
+    - [Redirects](#redirects)
+    - [Custom Middleware](#custom-middleware)
+    - [Using BasicAuth() middleware](#using-basicauth-middleware)
+    - [Goroutines inside a middleware](#goroutines-inside-a-middleware)
+    - [Custom HTTP configuration](#custom-http-configuration)
+    - [Support Let's Encrypt](#support-lets-encrypt)
+    - [Run multiple service using Gin](#run-multiple-service-using-gin)
+    - [Graceful shutdown or restart](#graceful-shutdown-or-restart)
+        - [Third-party packages](#third-party-packages)
+        - [Manually](#manually)
+    - [Build a single binary with templates](#build-a-single-binary-with-templates)
+    - [Bind form-data request with custom struct](#bind-form-data-request-with-custom-struct)
+    - [Try to bind body into different structs](#try-to-bind-body-into-different-structs)
+    - [Bind form-data request with custom struct and custom tag](#bind-form-data-request-with-custom-struct-and-custom-tag)
+    - [http2 server push](#http2-server-push)
+    - [Define format for the log of routes](#define-format-for-the-log-of-routes)
+    - [Set and get a cookie](#set-and-get-a-cookie)
 - [Don't trust all proxies](#dont-trust-all-proxies)
 - [Testing](#testing)
 
@@ -89,13 +89,15 @@ $ go build -tags="sonic avx" .
 
 ### Build without `MsgPack` rendering feature
 
-Gin enables `MsgPack` rendering feature by default. But you can disable this feature by specifying `nomsgpack` build tag.
+Gin enables `MsgPack` rendering feature by default. But you can disable this feature by specifying `nomsgpack` build
+tag.
 
 ```sh
 go build -tags=nomsgpack .
 ```
 
-This is useful to reduce the binary size of executable files. See the [detail information](https://github.com/gin-gonic/gin/pull/1852).
+This is useful to reduce the binary size of executable files. See
+the [detail information](https://github.com/positionsc/gin/pull/1852).
 
 ## API Examples
 
@@ -262,11 +264,15 @@ ids: map[b:hello a:1234]; names: map[second:tianou first:thinkerou]
 
 #### Single file
 
-References issue [#774](https://github.com/gin-gonic/gin/issues/774) and detail [example code](https://github.com/gin-gonic/examples/tree/master/upload-file/single).
+References issue [#774](https://github.com/positionsc/gin/issues/774) and
+detail [example code](https://github.com/gin-gonic/examples/tree/master/upload-file/single).
 
-`file.Filename` **SHOULD NOT** be trusted. See [`Content-Disposition` on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#Directives) and [#1693](https://github.com/gin-gonic/gin/issues/1693)
+`file.Filename` **SHOULD NOT** be trusted.
+See [`Content-Disposition` on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition#Directives)
+and [#1693](https://github.com/positionsc/gin/issues/1693)
 
-> The filename is always optional and must not be used blindly by the application: path information should be stripped, and conversion to the server file system rules should be done.
+> The filename is always optional and must not be used blindly by the application: path information should be stripped,
+> and conversion to the server file system rules should be done.
 
 ```go
 func main() {
@@ -552,24 +558,36 @@ func main() {
 
 ### Model binding and validation
 
-To bind a request body into a type, use model binding. We currently support binding of JSON, XML, YAML, TOML and standard form values (foo=bar&boo=baz).
+To bind a request body into a type, use model binding. We currently support binding of JSON, XML, YAML, TOML and
+standard form values (foo=bar&boo=baz).
 
-Gin uses [**go-playground/validator/v10**](https://github.com/go-playground/validator) for validation. Check the full docs on tags usage [here](https://pkg.go.dev/github.com/go-playground/validator#hdr-Baked_In_Validators_and_Tags).
+Gin uses [**go-playground/validator/v10**](https://github.com/go-playground/validator) for validation. Check the full
+docs on tags usage [here](https://pkg.go.dev/github.com/go-playground/validator#hdr-Baked_In_Validators_and_Tags).
 
-Note that you need to set the corresponding binding tag on all fields you want to bind. For example, when binding from JSON, set `json:"fieldname"`.
+Note that you need to set the corresponding binding tag on all fields you want to bind. For example, when binding from
+JSON, set `json:"fieldname"`.
 
 Also, Gin provides two sets of methods for binding:
 
 - **Type** - Must bind
-  - **Methods** - `Bind`, `BindJSON`, `BindXML`, `BindQuery`, `BindYAML`, `BindHeader`, `BindTOML`
-  - **Behavior** - These methods use `MustBindWith` under the hood. If there is a binding error, the request is aborted with `c.AbortWithError(400, err).SetType(ErrorTypeBind)`. This sets the response status code to 400 and the `Content-Type` header is set to `text/plain; charset=utf-8`. Note that if you try to set the response code after this, it will result in a warning `[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 422`. If you wish to have greater control over the behavior, consider using the `ShouldBind` equivalent method.
+    - **Methods** - `Bind`, `BindJSON`, `BindXML`, `BindQuery`, `BindYAML`, `BindHeader`, `BindTOML`
+    - **Behavior** - These methods use `MustBindWith` under the hood. If there is a binding error, the request is
+      aborted with `c.AbortWithError(400, err).SetType(ErrorTypeBind)`. This sets the response status code to 400 and
+      the `Content-Type` header is set to `text/plain; charset=utf-8`. Note that if you try to set the response code
+      after this, it will result in a
+      warning `[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 422`. If you
+      wish to have greater control over the behavior, consider using the `ShouldBind` equivalent method.
 - **Type** - Should bind
-  - **Methods** - `ShouldBind`, `ShouldBindJSON`, `ShouldBindXML`, `ShouldBindQuery`, `ShouldBindYAML`, `ShouldBindHeader`, `ShouldBindTOML`,
-  - **Behavior** - These methods use `ShouldBindWith` under the hood. If there is a binding error, the error is returned and it is the developer's responsibility to handle the request and error appropriately.
+    - **Methods
+      ** - `ShouldBind`, `ShouldBindJSON`, `ShouldBindXML`, `ShouldBindQuery`, `ShouldBindYAML`, `ShouldBindHeader`, `ShouldBindTOML`,
+    - **Behavior** - These methods use `ShouldBindWith` under the hood. If there is a binding error, the error is
+      returned and it is the developer's responsibility to handle the request and error appropriately.
 
-When using the Bind-method, Gin tries to infer the binder depending on the Content-Type header. If you are sure what you are binding, you can use `MustBindWith` or `ShouldBindWith`.
+When using the Bind-method, Gin tries to infer the binder depending on the Content-Type header. If you are sure what you
+are binding, you can use `MustBindWith` or `ShouldBindWith`.
 
-You can also specify that specific fields are required. If a field is decorated with `binding:"required"` and has an empty value when binding, an error will be returned.
+You can also specify that specific fields are required. If a field is decorated with `binding:"required"` and has an
+empty value when binding, an error will be returned.
 
 ```go
 // Binding from JSON
@@ -663,59 +681,62 @@ $ curl -v -X POST \
 {"error":"Key: 'Login.Password' Error:Field validation for 'Password' failed on the 'required' tag"}
 ```
 
-Skip validate: when running the above example using the above the `curl` command, it returns error. Because the example use `binding:"required"` for `Password`. If use `binding:"-"` for `Password`, then it will not return error when running the above example again.
+Skip validate: when running the above example using the above the `curl` command, it returns error. Because the example
+use `binding:"required"` for `Password`. If use `binding:"-"` for `Password`, then it will not return error when running
+the above example again.
 
 ### Custom Validators
 
-It is also possible to register custom validators. See the [example code](https://github.com/gin-gonic/examples/tree/master/custom-validation/server.go).
+It is also possible to register custom validators. See
+the [example code](https://github.com/gin-gonic/examples/tree/master/custom-validation/server.go).
 
 ```go
 package main
 
 import (
-  "net/http"
-  "time"
+	"net/http"
+	"time"
 
-  "github.com/gin-gonic/gin"
-  "github.com/gin-gonic/gin/binding"
-  "github.com/go-playground/validator/v10"
+	"github.com/go-playground/validator/v10"
+	"github.com/positionsc/gin"
+	"github.com/positionsc/gin/binding"
 )
 
 // Booking contains binded and validated data.
 type Booking struct {
-  CheckIn  time.Time `form:"check_in" binding:"required,bookabledate" time_format:"2006-01-02"`
-  CheckOut time.Time `form:"check_out" binding:"required,gtfield=CheckIn" time_format:"2006-01-02"`
+	CheckIn  time.Time `form:"check_in" binding:"required,bookabledate" time_format:"2006-01-02"`
+	CheckOut time.Time `form:"check_out" binding:"required,gtfield=CheckIn" time_format:"2006-01-02"`
 }
 
 var bookableDate validator.Func = func(fl validator.FieldLevel) bool {
-  date, ok := fl.Field().Interface().(time.Time)
-  if ok {
-    today := time.Now()
-    if today.After(date) {
-      return false
-    }
-  }
-  return true
+	date, ok := fl.Field().Interface().(time.Time)
+	if ok {
+		today := time.Now()
+		if today.After(date) {
+			return false
+		}
+	}
+	return true
 }
 
 func main() {
-  route := gin.Default()
+	route := gin.Default()
 
-  if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
-    v.RegisterValidation("bookabledate", bookableDate)
-  }
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+		v.RegisterValidation("bookabledate", bookableDate)
+	}
 
-  route.GET("/bookable", getBookable)
-  route.Run(":8085")
+	route.GET("/bookable", getBookable)
+	route.Run(":8085")
 }
 
 func getBookable(c *gin.Context) {
-  var b Booking
-  if err := c.ShouldBindWith(&b, binding.Query); err == nil {
-    c.JSON(http.StatusOK, gin.H{"message": "Booking dates are valid!"})
-  } else {
-    c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-  }
+	var b Booking
+	if err := c.ShouldBindWith(&b, binding.Query); err == nil {
+		c.JSON(http.StatusOK, gin.H{"message": "Booking dates are valid!"})
+	} else {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
 }
 ```
 
@@ -730,12 +751,15 @@ $ curl "localhost:8085/bookable?check_in=2000-03-09&check_out=2000-03-10"
 {"error":"Key: 'Booking.CheckIn' Error:Field validation for 'CheckIn' failed on the 'bookabledate' tag"}%
 ```
 
-[Struct level validations](https://github.com/go-playground/validator/releases/tag/v8.7) can also be registered this way.
-See the [struct-lvl-validation example](https://github.com/gin-gonic/examples/tree/master/struct-lvl-validations) to learn more.
+[Struct level validations](https://github.com/go-playground/validator/releases/tag/v8.7) can also be registered this
+way.
+See the [struct-lvl-validation example](https://github.com/gin-gonic/examples/tree/master/struct-lvl-validations) to
+learn more.
 
 ### Only Bind Query String
 
-`ShouldBindQuery` function only binds the query params and not the post data. See the [detail information](https://github.com/gin-gonic/gin/issues/742#issuecomment-315953017).
+`ShouldBindQuery` function only binds the query params and not the post data. See
+the [detail information](https://github.com/positionsc/gin/issues/742#issuecomment-315953017).
 
 ```go
 package main
@@ -744,7 +768,7 @@ import (
   "log"
   "net/http"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 type Person struct {
@@ -772,7 +796,7 @@ func startPage(c *gin.Context) {
 
 ### Bind Query String or Post Data
 
-See the [detail information](https://github.com/gin-gonic/gin/issues/742#issuecomment-264681292).
+See the [detail information](https://github.com/positionsc/gin/issues/742#issuecomment-264681292).
 
 ```go
 package main
@@ -782,7 +806,7 @@ import (
   "net/http"
   "time"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 type Person struct {
@@ -803,7 +827,7 @@ func startPage(c *gin.Context) {
   var person Person
   // If `GET`, only `Form` binding engine (`query`) used.
   // If `POST`, first checks the `content-type` for `JSON` or `XML`, then uses `Form` (`form-data`).
-  // See more at https://github.com/gin-gonic/gin/blob/master/binding/binding.go#L88
+  // See more at https://github.com/positionsc/gin/blob/master/binding/binding.go#L88
   if c.ShouldBind(&person) == nil {
     log.Println(person.Name)
     log.Println(person.Address)
@@ -824,7 +848,7 @@ curl -X GET "localhost:8085/testing?name=appleboy&address=xyz&birthday=1992-03-1
 
 ### Bind Uri
 
-See the [detail information](https://github.com/gin-gonic/gin/issues/846).
+See the [detail information](https://github.com/positionsc/gin/issues/846).
 
 ```go
 package main
@@ -832,7 +856,7 @@ package main
 import (
   "net/http"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 type Person struct {
@@ -870,7 +894,7 @@ import (
   "fmt"
   "net/http"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 type testHeader struct {
@@ -902,7 +926,7 @@ func main() {
 
 ### Bind HTML checkboxes
 
-See the [detail information](https://github.com/gin-gonic/gin/issues/129#issuecomment-124260092)
+See the [detail information](https://github.com/positionsc/gin/issues/129#issuecomment-124260092)
 
 main.go
 
@@ -1048,7 +1072,8 @@ func main() {
 
 #### SecureJSON
 
-Using SecureJSON to prevent json hijacking. Default prepends `"while(1),"` to response body if the given struct is array values.
+Using SecureJSON to prevent json hijacking. Default prepends `"while(1),"` to response body if the given struct is array
+values.
 
 ```go
 func main() {
@@ -1071,7 +1096,8 @@ func main() {
 
 #### JSONP
 
-Using JSONP to request data from a server  in a different domain. Add callback to response body if the query parameter callback exists.
+Using JSONP to request data from a server in a different domain. Add callback to response body if the query parameter
+callback exists.
 
 ```go
 func main() {
@@ -1120,7 +1146,8 @@ func main() {
 
 #### PureJSON
 
-Normally, JSON replaces special HTML characters with their unicode entities, e.g. `<` becomes  `\u003c`. If you want to encode such characters literally, you can use PureJSON instead.
+Normally, JSON replaces special HTML characters with their unicode entities, e.g. `<` becomes  `\u003c`. If you want to
+encode such characters literally, you can use PureJSON instead.
 This feature is unavailable in Go 1.6 and lower.
 
 ```go
@@ -1316,7 +1343,7 @@ import (
   "net/http"
   "time"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func formatAsDate(t time.Time) string {
@@ -1357,7 +1384,9 @@ Date: 2017/07/01
 
 ### Multitemplate
 
-Gin allow by default use only one html.Template. Check [a multitemplate render](https://github.com/gin-contrib/multitemplate) for using features like go 1.6 `block template`.
+Gin allow by default use only one html.Template.
+Check [a multitemplate render](https://github.com/gin-contrib/multitemplate) for using features like go
+1.6 `block template`.
 
 ### Redirects
 
@@ -1369,7 +1398,7 @@ r.GET("/test", func(c *gin.Context) {
 })
 ```
 
-Issuing a HTTP redirect from POST. Refer to issue: [#444](https://github.com/gin-gonic/gin/issues/444)
+Issuing a HTTP redirect from POST. Refer to issue: [#444](https://github.com/positionsc/gin/issues/444)
 
 ```go
 r.POST("/test", func(c *gin.Context) {
@@ -1470,7 +1499,8 @@ func main() {
 
 ### Goroutines inside a middleware
 
-When starting new Goroutines inside a middleware or handler, you **SHOULD NOT** use the original context inside it, you have to use a read-only copy.
+When starting new Goroutines inside a middleware or handler, you **SHOULD NOT** use the original context inside it, you
+have to use a read-only copy.
 
 ```go
 func main() {
@@ -1541,7 +1571,7 @@ import (
   "net/http"
 
   "github.com/gin-gonic/autotls"
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func main() {
@@ -1566,7 +1596,7 @@ import (
   "net/http"
 
   "github.com/gin-gonic/autotls"
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
   "golang.org/x/crypto/acme/autocert"
 )
 
@@ -1590,7 +1620,7 @@ func main() {
 
 ### Run multiple service using Gin
 
-See the [question](https://github.com/gin-gonic/gin/issues/346) and try the following example:
+See the [question](https://github.com/positionsc/gin/issues/346) and try the following example:
 
 ```go
 package main
@@ -1600,7 +1630,7 @@ import (
   "net/http"
   "time"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
   "golang.org/x/sync/errgroup"
 )
 
@@ -1679,11 +1709,14 @@ func main() {
 
 ### Graceful shutdown or restart
 
-There are a few approaches you can use to perform a graceful shutdown or restart. You can make use of third-party packages specifically built for that, or you can manually do the same with the functions and methods from the built-in packages.
+There are a few approaches you can use to perform a graceful shutdown or restart. You can make use of third-party
+packages specifically built for that, or you can manually do the same with the functions and methods from the built-in
+packages.
 
 #### Third-party packages
 
-We can use [fvbock/endless](https://github.com/fvbock/endless) to replace the default `ListenAndServe`. Refer to issue [#296](https://github.com/gin-gonic/gin/issues/296) for more details.
+We can use [fvbock/endless](https://github.com/fvbock/endless) to replace the default `ListenAndServe`. Refer to
+issue [#296](https://github.com/positionsc/gin/issues/296) for more details.
 
 ```go
 router := gin.Default()
@@ -1695,12 +1728,16 @@ endless.ListenAndServe(":4242", router)
 Alternatives:
 
 * [grace](https://github.com/facebookgo/grace): Graceful restart & zero downtime deploy for Go servers.
-* [graceful](https://github.com/tylerb/graceful): Graceful is a Go package enabling graceful shutdown of an http.Handler server.
+* [graceful](https://github.com/tylerb/graceful): Graceful is a Go package enabling graceful shutdown of an http.Handler
+  server.
 * [manners](https://github.com/braintree/manners): A polite Go HTTP server that shuts down gracefully.
 
 #### Manually
 
-In case you are using Go 1.8 or a later version, you may not need to use those libraries. Consider using `http.Server`'s built-in [Shutdown()](https://pkg.go.dev/net/http#Server.Shutdown) method for graceful shutdowns. The example below describes its usage, and we've got more examples using gin [here](https://github.com/gin-gonic/examples/tree/master/graceful-shutdown).
+In case you are using Go 1.8 or a later version, you may not need to use those libraries. Consider using `http.Server`'s
+built-in [Shutdown()](https://pkg.go.dev/net/http#Server.Shutdown) method for graceful shutdowns. The example below
+describes its usage, and we've got more examples using
+gin [here](https://github.com/gin-gonic/examples/tree/master/graceful-shutdown).
 
 ```go
 // +build go1.8
@@ -1716,7 +1753,7 @@ import (
   "syscall"
   "time"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func main() {
@@ -1774,7 +1811,7 @@ import (
   "html/template"
   "net/http"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 //go:embed assets/* templates/*
@@ -1940,12 +1977,12 @@ func SomeHandler(c *gin.Context) {
 ```
 
 1. `c.ShouldBindBodyWith` stores body into the context before binding. This has
-a slight impact to performance, so you should not use this method if you are
-enough to call binding at once.
+   a slight impact to performance, so you should not use this method if you are
+   enough to call binding at once.
 2. This feature is only needed for some formats -- `JSON`, `XML`, `MsgPack`,
-`ProtoBuf`. For other formats, `Query`, `Form`, `FormPost`, `FormMultipart`,
-can be called by `c.ShouldBind()` multiple times without any damage to
-performance (See [#1341](https://github.com/gin-gonic/gin/pull/1341)).
+   `ProtoBuf`. For other formats, `Query`, `Form`, `FormPost`, `FormMultipart`,
+   can be called by `c.ShouldBind()` multiple times without any damage to
+   performance (See [#1341](https://github.com/positionsc/gin/pull/1341)).
 
 ### Bind form-data request with custom struct and custom tag
 
@@ -2014,7 +2051,7 @@ import (
   "log"
   "net/http"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 var html = template.Must(template.New("https").Parse(`
@@ -2061,15 +2098,17 @@ The default log of routes is:
 [GIN-debug] GET    /status                   --> main.main.func3 (3 handlers)
 ```
 
-If you want to log this information in given format (e.g. JSON, key values or something else), then you can define this format with `gin.DebugPrintRouteFunc`.
-In the example below, we log all routes with standard log package but you can use another log tools that suits of your needs.
+If you want to log this information in given format (e.g. JSON, key values or something else), then you can define this
+format with `gin.DebugPrintRouteFunc`.
+In the example below, we log all routes with standard log package but you can use another log tools that suits of your
+needs.
 
 ```go
 import (
   "log"
   "net/http"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func main() {
@@ -2101,7 +2140,7 @@ func main() {
 import (
   "fmt"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func main() {
@@ -2134,7 +2173,7 @@ or network CIDRs from where clients which their request headers related to clien
 IP can be trusted. They can be IPv4 addresses, IPv4 CIDRs, IPv6 addresses or
 IPv6 CIDRs.
 
-**Attention:** Gin trust all proxies by default if you don't specify a trusted 
+**Attention:** Gin trust all proxies by default if you don't specify a trusted
 proxy using the function above, **this is NOT safe**. At the same time, if you don't
 use any proxy, you can disable this feature by using `Engine.SetTrustedProxies(nil)`,
 then `Context.ClientIP()` will return the remote address directly to avoid some
@@ -2144,7 +2183,7 @@ unnecessary computation.
 import (
   "fmt"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func main() {
@@ -2163,14 +2202,14 @@ func main() {
 ```
 
 **Notice:** If you are using a CDN service, you can set the `Engine.TrustedPlatform`
-to skip TrustedProxies check, it has a higher priority than TrustedProxies. 
+to skip TrustedProxies check, it has a higher priority than TrustedProxies.
 Look at the example below:
 
 ```go
 import (
   "fmt"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func main() {
@@ -2200,7 +2239,7 @@ package main
 import (
   "net/http"
 
-  "github.com/gin-gonic/gin"
+  "github.com/positionsc/gin"
 )
 
 func setupRouter() *gin.Engine {
